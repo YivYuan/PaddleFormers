@@ -156,7 +156,6 @@ def main():
         args_to_pass = " ".join(shlex.quote(arg) for arg in sys.argv[1:])
         if current_device == "iluvatar_gpu" or current_device == "musa":
             current_device = "gpu"
-        
         command = (
             f"python -m paddle.distributed.launch --log_dir {paddleformers_dist_log} "
             f"--{current_device}s {visible_cards} --master {master_ip}:{master_port} "
